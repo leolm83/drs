@@ -13,7 +13,7 @@ public class BankStatementCSVParser {
         final String description = columns[2];
 
 
-        return new BankTrasction(date,amount,description)
+        return new BankTransaction(date,amount,description)
     }
     public List<BankTransaction> parseLinesFromCSV(final List<String> lines){
         final List<BankTransaction> bankTransactions = new ArrayList<>();
