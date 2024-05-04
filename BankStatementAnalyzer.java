@@ -8,17 +8,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankTransactionAnalizer {
-    private static final String RESOURCES = "src/main/resources";
-    private static final BankStatementCSVParser bankStatementCSVParser = new BankStatementCSVParser();
+public class BankStatementAnalyzer {
+   
+    private static final BankStatementParser bankStatementCSVParser = new BankStatementCSVParser();
 
-    public static void main(String[] args) throws IOException {
 
-        final String fileName = args[0];
-        final Path path = Paths.get(RESOURCES,fileName);
-        final List<String> lines = Files.readAllLines(path);
+    public void analyze(final Path path,final BankStatementParser bankStatementParser)throws Exception{
+         final List<String> lines = Files.readAllLines(path);
 
-        final List<BankTransaction> bankTransactions = bankStatementCSVParser.parseLinesFromCSV(lines);
+        final List<BankTransaction> bankTransactions = bankStatementParser.parseLinesFrom(lines);
         final BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
         collectSummary(bankStatementProcessor);
     
