@@ -1,3 +1,5 @@
+package com.leolmcoding;
+
 import java.util.List;
 
 public interface BankStatementParser {
