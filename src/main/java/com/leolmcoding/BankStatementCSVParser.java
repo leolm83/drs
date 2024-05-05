@@ -17,7 +17,7 @@ public class BankStatementCSVParser implements BankStatementParser {
         final String description = columns[2];
 
 
-        return new BankTransaction(date,amount,description)
+        return new BankTransaction(date,amount,description);
     }
     public List<BankTransaction> parseLinesFrom(final List<String> lines){
         final List<BankTransaction> bankTransactions = new ArrayList<>();
